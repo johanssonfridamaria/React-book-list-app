@@ -1,9 +1,16 @@
-import React from 'react'
+import React, {useState} from 'react'
 
-export default function Book() {
+export default function Book({book}) {
+
+  const [isSelected, setIsSelected] = useState(false)
+
+  const changeColor = ()=>{
+    setIsSelected(!isSelected)
+  }
+
   return (
-    <div>
-      Book
-    </div>
+  <li className={`list-group-item ${isSelected ? 'changeColor' : ''}`} onClick={changeColor}>
+    {book.title}
+  </li>
   )
 }
